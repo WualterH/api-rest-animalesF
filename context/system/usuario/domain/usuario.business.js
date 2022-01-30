@@ -10,8 +10,8 @@ class UsuarioBusiness extends BaseBusiness {
     this._usuarioRepository = UsuarioRepository;
   }
 
-  async getFindLogin(email) {
-    const usuario = await this._usuarioRepository.findLogin(email);
+  async getFindLogin(nombre) {
+    const usuario = await this._usuarioRepository.findLogin(nombre);
     return usuario;
   }
 

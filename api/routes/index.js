@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const compression = require('compression');
 
-module.exports = function ({ EstadoCivilRoute, PrevisionRoute, AfpRoute, EmpresaRoute, CiudadRoute, SucursalRoute, authMiddleware, UserRoutes, RolRoute, PermisoRoute, RolPermisoRoute }) {
+module.exports = function ({ EstadoCivilRoute, PrevisionRoute, AfpRoute, EmpresaRoute, CiudadRoute, SucursalRoute, authMiddleware, UserRoutes, RolRoute, PermisoRoute, RolPermisoRoute, EncuestaRoute, EncuestadorRoute }) {
 
   const router = Router();
   const apiRoute = Router();
@@ -23,9 +23,11 @@ module.exports = function ({ EstadoCivilRoute, PrevisionRoute, AfpRoute, Empresa
   apiRoute.use("/afp", AfpRoute);
   apiRoute.use("/prevision", PrevisionRoute);
   apiRoute.use("/estado", EstadoCivilRoute);
+  apiRoute.use("/encuesta", EncuestaRoute);
+  apiRoute.use("/encuestador", EncuestadorRoute);
 
   //ruta padre
-  router.use("/rrhh", apiRoute);
+  router.use("/animalesF", apiRoute);
 
   return router;
 

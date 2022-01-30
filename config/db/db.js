@@ -15,6 +15,10 @@ const Empresa = require('../../context/system/empresa/dataAccess/models/empresa.
 const Afp = require('../../context/system/afp/dataAcces/models/afp.entity')(database, Sequelize);
 const Prevision = require('../../context/system/prevision/dataAccess/models/prevision.entity')(database, Sequelize);
 const EstadoCivil = require('../../context/system/usuario/dataAccess/models/estadoCivil.entity')(database, Sequelize);
+const Encuesta = require('../../context/system/encuesta/dataAccess/models/encuesta.entity')(database, Sequelize);
+const Encuestador = require('../../context/system/encuestador/dataAccess/models/encuestador.entity')(database, Sequelize);
+const Persona = require('../../context/system/persona/dataAccess/models/persona.entity')(database, Sequelize);
+const EncuestaPersona = require('../../context/system/EncuestaPersona/dataAccess/models/encuestaPersona.entity')(database, Sequelize);
 
 //acciones en cascadas por defecto
 const onDelete = "CASCADE";
@@ -44,10 +48,17 @@ Usuario.belongsTo(RolUsuario, { foreignKey: { name: "id_rol" }, onDelete: onDele
 //una empresa pertenece a una ciudad
 Ciudad.hasMany(Empresa, { foreignKey: { name: "ciudad" }, onDelete: onDelete, onUpdate: onUpdate });
 
+// relacion entre encuesta y encuestador
+Encuesta.belongsTo(Encuestador, { foreignKey: "idEncuestador", as: "encuestadores", onDelete: onDelete, onUpdate: onUpdate });
+Encuestador.hasMany(Encuesta, { foreignKey: "idEncuestador", as: "encuestadores", onDelete: onDelete, onUpdate: onUpdate });
 
+// relacion entre encuesta y encuestaPersona
+EncuestaPersona.belongsTo(Encuesta, { foreignKey: "idEncuesta", as: "encuestaPersona", onDelete: onDelete, onUpdate: onUpdate });
+Encuesta.hasMany(EncuestaPersona, { foreignKey: "idEncuesta", as: "encuestaPersona", onDelete: onDelete, onUpdate: onUpdate });
 
-
-
+// relacion entre persona y encuestaPersona
+EncuestaPersona.belongsTo(Persona, { foreignKey: "idPersona", as: "personas", onDelete: onDelete, onUpdate: onUpdate });
+Persona.hasMany(EncuestaPersona, { foreignKey: "idPersona", as: "personas", onDelete: onDelete, onUpdate: onUpdate });
 
 //---------------------------------------------------añadiendo entidades
 db.usuario = Usuario;
@@ -60,6 +71,10 @@ db.empresa = Empresa;
 db.afp = Afp;
 db.prevision = Prevision;
 db.estadoCivil = EstadoCivil;
+db.encuesta = Encuesta;
+db.encuestador = Encuestador;
+db.persona = Persona;
+db.encuestaPersona = EncuestaPersona;
 
 db.sequelize = database;
 db.Sequelize = Sequelize;
@@ -77,6 +92,9 @@ module.exports = {
   Empresa,
   Afp,
   Prevision,
-  EstadoCivil
-
+  EstadoCivil,
+  Encuesta,
+  Encuestador,
+  Persona,
+  EncuestaPersona
 }

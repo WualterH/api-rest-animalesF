@@ -48,7 +48,21 @@ module.exports = {
     EstadoCivil: require('./usuario/dataAccess/models/estadoCivil.entity'),
     EstadoCivilService: require('./usuario/service/estadoCivil.service'),
     EstadoCivilBusiness: require('./usuario/domain/estadoCivil.business'),
-    EstadoCivilRepository: require('./usuario/dataAccess/repositories/estadoCivil.repository')
+    EstadoCivilRepository: require('./usuario/dataAccess/repositories/estadoCivil.repository'),
 
+    Encuesta: require('./encuesta/dataAccess/models/encuesta.entity'),
+    EncuestaService: require('./encuesta/service/encuesta.service'),
+    EncuestaBusiness: require('./encuesta/domain/encuesta.business'),
+    EncuestaRepository: require('./encuesta/dataAccess/repository/encuesta.repository'),
 
+    Persona: require('./persona/dataAccess/models/persona.entity'),   
+    PersonaRepository: require('./persona/dataAccess/repository/persona.repository'),
+
+    EncuestaPersona: require('./encuestaPersona/dataAccess/models/encuestaPersona.entity'), 
+    EncuestaPersonaRepository: require('./encuestaPersona/dataAccess/repository/encuestaPersona.repository'),
+
+    Encuestador: require('./encuestador/dataAccess/models/encuestador.entity'),
+    EncuestadorService: require('./encuestador/service/encuestador.service'),
+    EncuestadorBusiness: require('./encuestador/domain/encuestador.business'),
+    EncuestadorRepository: require('./encuestador/dataAccess/repository/encuestador.repository'),
 }

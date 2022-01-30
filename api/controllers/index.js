@@ -1,3 +1,5 @@
+const EncuestadorController = require("./encuestadorController/encuestador.controller");
+
 module.exports = {
   UsuarioController: require("./usuarioController/usuario.controller"),
   AuthController: require("./auth.controller"),
@@ -9,5 +11,7 @@ module.exports = {
   EmpresaController: require('./empresaController/empresa.controller'),
   AfpController: require('./afpController/afp.controller'),
   PrevisionController: require('./previsionController/prevision.controller'),
-  EstadoCivilController: require('./usuarioController/estadoCivil.controller')
+  EstadoCivilController: require('./usuarioController/estadoCivil.controller'),
+  EncuestaController: require('./encuestaController/encuesta.controller'),
+  EncuestadorController: require('./encuestadorController/encuestador.controller')
 };

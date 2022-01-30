@@ -14,8 +14,8 @@ class AuthController {
     //login
     async login(req, res) {
         try {
-            const { email_usuario, clave_usuario } = req.body;
-            let usuario = await this._UsuarioService.getFindLogin(email_usuario);
+            const { nombre_usuario, clave_usuario } = req.body;
+            let usuario = await this._UsuarioService.getFindLogin(nombre_usuario);
             if (!usuario) {
                 return res.status(404).send({ msg: "Usuario no encontrado" });
             } else {

@@ -4,6 +4,7 @@ module.exports = {
   RolUsuarioDto: require("./rolUsuario.dto"),
   PermisoDto: require("./permiso.dto"),
   RolPermisoDto: require('./rolPermiso.dto'),
-  EmpresaDto: require('./empresa.dto')
-
+  EmpresaDto: require('./empresa.dto'),
+  Encuesta: require("./encuesta.dto"),
+  Encuestador: require("./encuestador.dto")
 };

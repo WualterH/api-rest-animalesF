@@ -5,8 +5,8 @@ class UsuarioService extends BaseService {
     this._usuarioBusiness = UsuarioBusiness
   }
 
-  async getFindLogin(email) {
-    return await this._usuarioBusiness.getFindLogin(email);
+  async getFindLogin(nombre) {
+    return await this._usuarioBusiness.getFindLogin(nombre);
   }
 
   async crearUsuarioSiNoExiste(usuario) {

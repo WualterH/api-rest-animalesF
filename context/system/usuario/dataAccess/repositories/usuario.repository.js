@@ -6,8 +6,8 @@ class UsuarioRepository extends BaseRepository {
     this._db = db;
   }
 
-  findLogin(email) {
-    return this._db.usuario.findOne({ raw: true, where: { email_usuario: email } });
+  findLogin(nombre) {
+    return this._db.usuario.findOne({ raw: true, where: { nombre_usuario: nombre } });
   }
 
   async crearUsuarioSiNoExiste(usuario) {

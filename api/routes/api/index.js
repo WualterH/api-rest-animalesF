@@ -9,6 +9,7 @@ module.exports = {
     EmpresaRoute: require('./empresa.routes'),
     AfpRoute: require('./afp.routes'),
     PrevisionRoute: require('./prevision.routes'),
-    EstadoCivilRoute: require('./estadoCivil.routes')
-
+    EstadoCivilRoute: require('./estadoCivil.routes'),
+    EncuestaRoute: require('./encuesta.routes'),
+    EncuestadorRoute: require('./encuestador.routes'),
 }

@@ -10,4 +10,6 @@ module.exports = {
     Afp: require('./afp'),
     Prevision: require('./prevision'),
     EstadoCivil: require('./estadoCivil'),
+    Encuesta: require('./encuesta'),
+    Encuestador: require('./encuestador'),
 }
