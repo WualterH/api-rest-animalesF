@@ -24,12 +24,7 @@ module.exports = (sequelize, type) => {
                     notNull: { msg: "La apellido es requerida" }
                 },                
             }
-        },
-        {
-            indexes: [                
-                { unique: true, fields: ['nombre'] }
-            ]
-        }
+        },        
     );
 
     Persona.addHook('beforeCreate', (persona) => {        

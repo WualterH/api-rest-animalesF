@@ -48,9 +48,9 @@ Usuario.belongsTo(RolUsuario, { foreignKey: { name: "id_rol" }, onDelete: onDele
 //una empresa pertenece a una ciudad
 Ciudad.hasMany(Empresa, { foreignKey: { name: "ciudad" }, onDelete: onDelete, onUpdate: onUpdate });
 
-// relacion entre encuesta y encuestador
-Encuesta.belongsTo(Encuestador, { foreignKey: "idEncuestador", as: "encuestadores", onDelete: onDelete, onUpdate: onUpdate });
-Encuestador.hasMany(Encuesta, { foreignKey: "idEncuestador", as: "encuestadores", onDelete: onDelete, onUpdate: onUpdate });
+// relacion entre encuesta y usuario
+Encuesta.belongsTo(Usuario, { foreignKey: "idEncuestador", as: "encuestadores", onDelete: onDelete, onUpdate: onUpdate });
+Usuario.hasMany(Encuesta, { foreignKey: "idEncuestador", as: "encuestadores", onDelete: onDelete, onUpdate: onUpdate });
 
 // relacion entre encuesta y encuestaPersona
 EncuestaPersona.belongsTo(Encuesta, { foreignKey: "idEncuesta", as: "encuestaPersona", onDelete: onDelete, onUpdate: onUpdate });
