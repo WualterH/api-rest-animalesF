@@ -75,6 +75,20 @@ class EncuestaController {
         }
     }
 
+    async upload(req, res) {        
+		if (!req.file) {
+			console.log("No file received");
+			return res.send({
+				success: false,
+			});
+		} else {
+			console.log("file received successfully");
+			setTimeout(() => {
+				return res.status(200).send(req.file.filename);
+			}, 2000);
+		}
+	}
+
 }
 
 module.exports = EncuestaController;
