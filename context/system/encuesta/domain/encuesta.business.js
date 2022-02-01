@@ -22,10 +22,22 @@ class EncuestaBusiness extends BaseBusiness {
     }
 
     async getPorId(id) {
-        const getEncuestas = await this._entityRepository.getPorId(id);
-        // cosole.log("*******", getEncuestas);
+        const getEncuestas = await this._entityRepository.getPorId(id);        
         return getEncuestas
     }
+
+    async encuestaPorId(id) {
+        return await this._entityRepository.encuestaPorId(id)
+    }
+
+    async updateEncuesta(id, entity) {
+        entity.id = id;
+        const updatedEntity = await this._entityRepository.updateEncuesta(id, entity.animal);
+        const idPersona = await this._entityRepository.encuestaPorId(entity.id)        
+        const updateNombre = await this._personaRepository.updateNombre(idPersona.encuestaPersona.personas.id, entity.nombre);                
+        const updateApellido = await this._personaRepository.updateApellido(idPersona.encuestaPersona.personas.id, entity.apellido);                
+        return "Encuesta editado con exito"
+      }
 
 }
 module.exports = EncuestaBusiness;

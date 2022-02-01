@@ -17,6 +17,14 @@ class EncuestaService extends BaseService {
         const entity = await this._entityBusiness.getPorId(id);
         return entity;
     }
+    async encuestaPorId(id) {
+        const entity = await this._entityBusiness.encuestaPorId(id);
+        return entity;
+    }
+    async updateEncuesta(id, entity) {
+        const updatedEntity = await this._entityBusiness.updateEncuesta(id, entity);
+        return updatedEntity;
+      }
 }
 
 module.exports = EncuestaService;

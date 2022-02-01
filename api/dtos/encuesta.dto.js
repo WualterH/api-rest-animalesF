@@ -1,7 +1,7 @@
 class EncuestaDto {
     id = 0;    
     animal = "";
-    //url = "";
+    url = "";
     encuestador = "";        
     userAt = "";
 }

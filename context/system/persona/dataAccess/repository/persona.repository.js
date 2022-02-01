@@ -12,5 +12,17 @@ class PersonaRepository extends BaseRepository {
             throw new Error(err.errors[0].message || err.message);
         });
     }    
+    updateNombre(id, nombre) {        
+        return this._db.persona.update(
+			{ nombre: nombre },            
+			{ where: { id: id } }
+		);		
+    }
+    updateApellido(id, apellido) {        
+        return this._db.persona.update(
+			{ apellido: apellido },            
+			{ where: { id: id } }
+		);		
+    }
 }
 module.exports = PersonaRepository;

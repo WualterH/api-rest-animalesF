@@ -1,7 +1,7 @@
 class Encuesta {
     id = 0;    
     animal = "";
-    //url = "";
+    url = "";
     encuestador = "";
 }
 module.exports = Encuesta;

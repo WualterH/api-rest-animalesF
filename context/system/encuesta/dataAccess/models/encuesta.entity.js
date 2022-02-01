@@ -16,14 +16,14 @@ module.exports = (sequelize, type) => {
                     notNull: { msg: "El animal es requerido" }
                 },                
             },
-            // url: {
-            //     type: type.STRING,
-            //     allowNull: false,
-            //     validate: {
-            //         len: { arg: [3, 50], msg: 'Minimo 3 y maximo 50 caracteres' },
-            //         notNull: { msg: "La url es requerida" }
-            //     },                
-            // }
+            url: {
+                type: type.STRING,
+                allowNull: false,
+                validate: {
+                    len: { arg: [3, 50], msg: 'Minimo 3 y maximo 50 caracteres' },
+                    notNull: { msg: "La url es requerida" }
+                },                
+            }
         },
         {
             // indexes: [                

@@ -37,13 +37,28 @@ class EncuestaController {
         }
     }
 
+    async encuestaPorId(req, res) {               
+        try {
+
+            const { id } = req.params;
+            const encuesta = await this._encuestaService.encuestaPorId(id);
+            if (!encuesta) {
+                return res.status(200).send({ success: false, msg: "No hay registros" });
+            }
+
+            return res.status(200).send({ success: true, data: encuesta });
+        } catch (error) {
+            return res.status(500).send({ success: false, msg: error.message });
+        }
+    }
+
     async actualizarEncuesta(req, res) {
 
         try {
 
             const { id } = req.params;
             const body = req.body;
-            await this._encuestaService.update(id, body);
+            await this._encuestaService.updateEncuesta(id, body);
             return res.status(200).send({ success: true, msg: "Actualizado correctamente" });
 
         } catch (error) {

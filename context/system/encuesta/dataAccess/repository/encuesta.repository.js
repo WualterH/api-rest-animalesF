@@ -46,6 +46,32 @@ class EncuestaRepository extends BaseRepository {
         }).catch((err) => {
             throw new Error(err.message[0].message || err.message);
         });
-    }    
+    }  
+    
+    encuestaPorId(id) {        
+        return this._db[this.entity].findOne({
+            include: [                
+                {model: this._db.encuestaPersona, as: 'encuestaPersona', 
+                include: [{model: this._db.persona, as: 'personas', required: false}] }
+            ],
+            raw: true,
+            nest: true,
+            where: {
+                 id
+            }
+        }).then((data) => {
+            if (!data) throw new Error("No hay registro");
+            return data;
+        }).catch((err) => {
+            throw new Error(err.message[0].message || err.message);
+        });
+    }
+
+    updateEncuesta(id, entity) {               
+        return this._db.encuesta.update(
+			{ animal: entity },
+			{ where: { id: id } }
+		);		
+    }
 }
 module.exports = EncuestaRepository;
