@@ -39,6 +39,8 @@ class EncuestadorController {
         }
     }
 
+    
+
     async actualizarEncuestador(req, res) {
 
         try {

@@ -37,6 +37,21 @@ class EncuestaController {
         }
     }
 
+    async buscarAnimal(req, res) {        
+        try {
+
+            const { id } = req.params;
+            const encuesta = await this._encuestaService.getAnimal(id);
+            if (!encuesta) {
+                return res.status(200).send({ success: false, msg: "No hay registros" });
+            }
+
+            return res.status(200).send({ success: true, data: encuesta });
+        } catch (error) {
+            return res.status(500).send({ success: false, msg: error.message });
+        }
+    }
+
     async encuestaPorId(req, res) {               
         try {
 

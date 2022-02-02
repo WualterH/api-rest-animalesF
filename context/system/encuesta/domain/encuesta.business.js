@@ -38,6 +38,24 @@ class EncuestaBusiness extends BaseBusiness {
         const updateApellido = await this._personaRepository.updateApellido(idPersona.encuestaPersona.personas.id, entity.apellido);                
         return "Encuesta editado con exito"
       }
+      async getAnimal(id) {          
+        let nombreA = "PERRO";
+        const getEncuesta = await this._encuestaRepository.getPorId(id, nombreA);
+        const getAnimal = await this._encuestaRepository.getAnimal(id, nombreA);
+        if(getAnimal.length == 0){
+            let array = {
+                "valor": getEncuesta,
+                "animal": 0
+            }
+            return array;
+        }else{        
+        let array = {
+            "valor": getEncuesta.length,
+            "animal": getAnimal.length
+        }
+        return array
+        }
+      }
 
 }
 module.exports = EncuestaBusiness;

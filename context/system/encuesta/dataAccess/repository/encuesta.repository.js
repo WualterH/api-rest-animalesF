@@ -73,5 +73,24 @@ class EncuestaRepository extends BaseRepository {
 			{ where: { id: id } }
 		);		
     }
+
+    getAnimal(id, nombre) {
+        return this._db[this.entity].findAll({
+            include: [                
+                {model: this._db.encuestaPersona, as: 'encuestaPersona', 
+                include: [{model: this._db.persona, as: 'personas', required: false}] }
+            ],
+            raw: true,
+            nest: true,
+            where: {
+                idEncuestador: id, animal: nombre
+            }
+        }).then((data) => {
+            if (!data) throw new Error("No hay registro");
+            return data;
+        }).catch((err) => {
+            throw new Error(err.message[0].message || err.message);
+        });
+    }  
 }
 module.exports = EncuestaRepository;

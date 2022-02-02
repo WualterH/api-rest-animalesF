@@ -27,6 +27,7 @@ module.exports = function ({ EncuestaController }) {
 
     router.get('/', EncuestaController.ListarTodasLasEncuestas.bind(EncuestaController));
     router.get('/:id', EncuestaController.buscarEncuestaPorId.bind(EncuestaController));
+	router.get('/animal/:id', EncuestaController.buscarAnimal.bind(EncuestaController));
     router.get('/buscar/:id', EncuestaController.encuestaPorId.bind(EncuestaController));
     router.put('/actualizar/:id', EncuestaController.actualizarEncuesta.bind(EncuestaController));
     router.delete('/eliminar/:id', EncuestaController.eliminarEncuesta.bind(EncuestaController));
