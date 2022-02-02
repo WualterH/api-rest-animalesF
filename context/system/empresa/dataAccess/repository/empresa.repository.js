@@ -12,8 +12,7 @@ class EmpresaRepository extends BaseRepository {
     buscarEmpresaPorRun(run) {
         return this._db.empresa.findOne({
             raw: true, nest: true, where: { run: run }
-        }).then((empresa) => {
-            console.log(empresa);
+        }).then((empresa) => {            
             if (!empresa) throw new Error("No hay registro");
             return empresa;
         });

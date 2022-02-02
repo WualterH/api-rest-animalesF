@@ -9,8 +9,7 @@ class SucursalController {
 
     async listarTodosLasSucursales(req, res) {
         try {
-            const datos = await this._sucursalService.getAll();
-            console.log("suc", datos.length);
+            const datos = await this._sucursalService.getAll();            
             if (datos.length == 0) {
                 return res.status(200).send({ succes: false, msg: "No hay registros" });
             }
@@ -46,10 +45,8 @@ class SucursalController {
 
     async crearSucursal(req, res) {
         try {
-            const body = req.body;
-            console.log(body);
-            const data = await this._sucursalService.create(body);
-            console.log(data);
+            const body = req.body;            
+            const data = await this._sucursalService.create(body);            
             return res.status(200).send({ success: true, data: data });
         } catch (error) {
             return res.status(500).send({ success: false, msg: error.message });

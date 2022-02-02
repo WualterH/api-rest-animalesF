@@ -12,10 +12,8 @@ module.exports = (req, res, next) => {
 
     //comprobar validez de este token
     let token = req.headers.authorization.split(' ')[1];
-    let decode = jwt.decode(token, authConfig.secret);
-    console.log(decode)
-    let userAt = req.headers.userat;
-    console.log(token)
+    let decode = jwt.decode(token, authConfig.secret);    
+    let userAt = req.headers.userat;    
 
 
     //se comprueba si el token expiro
@@ -30,8 +28,7 @@ module.exports = (req, res, next) => {
     jwt.verify(token, authConfig.secret, (err, decoded) => {
         if (err) {
             res.status(500).send({ msg: "Ha ocurrido un problema al decodificar el token", err });
-        } else {
-            console.log(req.headers);
+        } else {            
 
             req.user = decoded;
             req.body.userAt = userAt;

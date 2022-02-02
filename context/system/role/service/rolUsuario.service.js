@@ -6,8 +6,7 @@ class RolUsuarioService extends BaseService {
         this._rolUsuarioBusiness = RolUsuarioBusiness;
     }
 
-    async todoLosRole() {
-        console.log("service");
+    async todoLosRole() {        
         return await this._rolUsuarioBusiness.todoLosRole();
     }
 

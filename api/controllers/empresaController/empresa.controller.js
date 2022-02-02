@@ -60,7 +60,7 @@ class EmpresaController {
 
 
             const empresadto = mapper(EmpresaDto, empresa);
-            console.log(empresadto);
+            
 
             return res.status(200).send({ success: true, msg: empresa });
 

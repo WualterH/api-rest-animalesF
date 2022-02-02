@@ -12,8 +12,7 @@ class UsuarioRepository extends BaseRepository {
 
   async crearUsuarioSiNoExiste(usuario) {
     const respuesta = await this._db.usuario.findOne({ where: { email_usuario: usuario.email_usuario } })
-    if (respuesta) {
-      console.log("ya existe");
+    if (respuesta) {      
       return ({ error: true, msg: "El usuario ya existe" });
     }
     return await this._db.usuario.create(usuario);

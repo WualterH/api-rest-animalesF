@@ -35,9 +35,7 @@ class RolPermisoController {
             let rolPermiso = await this._rolPermisoService.listarPermisosPorRol(id);
             if (rolPermiso.length == 0) {
                 return res.status(200).send({ success: false, msg: "No se encontro el registro" });
-            }
-            // rolPermiso = rolPermiso.map(rolP => mapper(RolPermisoDto, rolP));
-            console.log(rolPermiso);
+            }            
 
             return res.status(200).send({ success: true, data: rolPermiso });
 

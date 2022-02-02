@@ -17,8 +17,7 @@ class PermisoController {
             if (permisos.length == 0) {
                 return res.status(200).send({ success: false, msg: "No se encontraron registros registros" });
             }
-            permisos = permisos.map(permiso => mapper(PermisoDto, permiso));
-            console.log(permisos);
+            permisos = permisos.map(permiso => mapper(PermisoDto, permiso));            
             return res.status(200).send({ success: true, data: permisos });
 
         } catch (error) {

@@ -37,8 +37,7 @@ class RolUsuarioController {
 
     async crearRol(req, res) {
 
-        try {
-            console.log("crear");
+        try {            
             const { body } = req;
             await this._rolUsuarioService.create(body);
             res.status(200).send({ success: true, msg: 'Rol creado correctamente' });
@@ -50,8 +49,7 @@ class RolUsuarioController {
 
     async actualizarRol(req, res) {
 
-        try {
-            console.log("update");
+        try {            
             const { id } = req.params;
             const { body } = req;
             await this._rolUsuarioService.update(id, body);
