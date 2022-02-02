@@ -4,12 +4,6 @@ module.exports = {
     RolUsuario: require('./rolUsuario'),
     Permiso: require('./permiso'),
     RolPermiso: require('./rolPermiso'),
-    Sucursal: require('./sucursal'),
-    Ciudad: require('./ciudad'),
-    Empresa: require('./empresa'),
-    Afp: require('./afp'),
-    Prevision: require('./prevision'),
-    EstadoCivil: require('./estadoCivil'),
     Encuesta: require('./encuesta'),
     Encuestador: require('./encuestador'),
 }

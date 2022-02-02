@@ -3,7 +3,7 @@ const { asClass, asFunction } = require('awilix');
 
 const { UsuarioRepository, UsuarioService, UsuarioBusiness, EstadoCivil, EstadoCivilService, EstadoCivilBusiness, EstadoCivilRepository } = require('../../../context/system');
 const { UsuarioController, AuthController, EstadoCivilController } = require('../../../api/controllers');
-const { UsuarioRoute, EstadoCivilRoute } = require('../../../api/routes/api');
+const { UsuarioRoute } = require('../../../api/routes/api');
 
 
 module.exports = (container) => {
@@ -16,12 +16,7 @@ module.exports = (container) => {
         UsuarioBusiness: asClass(UsuarioBusiness).singleton(),
         UsuarioController: asClass(UsuarioController).singleton(),
 
-        EstadoCivil: asClass(EstadoCivil).singleton(),
-        EstadoCivilRoute: asFunction(EstadoCivilRoute).singleton(),
-        EstadoCivilService: asClass(EstadoCivilService).singleton(),
-        EstadoCivilBusiness: asClass(EstadoCivilBusiness).singleton(),
-        EstadoCivilRepository: asClass(EstadoCivilRepository).singleton(),
-        EstadoCivilController: asClass(EstadoCivilController).singleton(),
+        
     });
 
     return container;

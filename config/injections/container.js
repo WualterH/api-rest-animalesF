@@ -26,12 +26,7 @@ container
 container = require("./middlewares.injection")(container);
 container = require('./contexto/usuario.injection')(container);
 container = require('./contexto/rolUsuario.injection')(container);
-container = require('./contexto/sucursal.injection')(container);
-container = require('./contexto/ciudad.injection')(container);
-container = require('./contexto/empresa.injection')(container);
-container = require('./contexto/afp.injection')(container);
-container = require('./contexto/prevision.injection')(container);
-container = require('./contexto/encuesta.injection')(container);
+ontainer = require('./contexto/encuesta.injection')(container);
 container = require('./contexto/encuestador.injection')(container);
 container = require('./contexto/persona.injection')(container);
 container = require('./contexto/encuestaPersona.injection')(container);
